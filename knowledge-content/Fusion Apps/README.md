@@ -11,14 +11,15 @@ Let us see how we can create Custom sources for Fusion products
 •	Next, we searched for Cash Management in 'Fusion Audit Products REST API.xlsx' (attached) and found the web application name to be 'Payables'.
 •	Use Audit Setup API to fetch the VOs associated with the product/web app.
 
- Sample Curl command
+ * Sample Curl command :
+<pre>
   curl --location 'https://BASE_URL_HERE/fscmRestApi/fndAuditRESTService/audittrail/get-auditsetup' \
     --header 'Content-Type: application/json' \
     --header 'Authorization: Basic ******' \
     --data '{
         "application": "Payables"
     }'
-
+</pre>
 •	This will give you the available view objects. Search for External Bank Account in the above JSON response. You will get the associated VO. Look for parent VOs.
 
   Sample VO inside JSON response
@@ -26,7 +27,8 @@ Let us see how we can create Custom sources for Fusion products
 
 •	Use the product and business object type we got above to fetch the audit logs using REST API
 
-  Sample Curl command
+  * Sample Curl command :
+  <pre>
   curl --location 'https://BASE_URL_HERE/fscmRestApi/fndAuditRESTService/audittrail/getaudithistory?pageSize=50&pageNumber=1' \
     --header 'Content-Type: application/json' \
     --header 'Authorization: Basic ******' \
@@ -41,3 +43,4 @@ Let us see how we can create Custom sources for Fusion products
         "businessObjectType": "oracle.apps.********.core.view.ExternalBankAccountVO",
         "includeChildObjects":true
     }'
+</pre>
