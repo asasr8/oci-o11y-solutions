@@ -42,3 +42,5 @@ Let us see how we can create Custom sources for Fusion products
         "includeChildObjects":true
         }'
       </pre>
+* Once we have the output we can use the REST API to setup ingestion.
+* We can follow the steps from this [document](https://docs.oracle.com/en-us/iaas/logging-analytics/doc/set-rest-api-log-collection.html#LOGAN-GUID-17E91D5F-5EE3-42EB-8214-1D4597432D6C)
