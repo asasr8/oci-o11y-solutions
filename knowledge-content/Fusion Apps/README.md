@@ -8,25 +8,25 @@ Let us see how we can create Custom sources for Fusion products
 
 * Identify the product you want to collect the audit logs for and enable its audit trail report in Fusion Apps.
 * In our case the product was Cash Management and Business Object Type was External Bank Account
-*	Next, we searched for Cash Management in 'Fusion Audit Products REST API.xlsx' (attached) and found the web application name to be 'Payables'.
-* Use Audit Setup API to fetch the VOs associated with the product/web app.
+*	Next, we searched for Cash Management in 'Fusion Audit Products REST API.xlsx' and found the web application name to be 'Payables'.
+* Use Audit Setup API to fetch the View Objects associated with the product/web app.
   * Sample Curl command :
-<pre>
+  <pre>
   curl --location 'https://BASE_URL_HERE/fscmRestApi/fndAuditRESTService/audittrail/get-auditsetup' \
     --header 'Content-Type: application/json' \
     --header 'Authorization: Basic ******' \
     --data '{
         "application": "Payables"
     }'
-</pre>
-* This will give you the available view objects. Search for External Bank Account in the above JSON response. You will get the associated VO. Look for parent VOs.
-  * Sample VO inside JSON response
- "viewObject" : "oracle.apps.********.core.view.ExternalBankAccountVO"
+    </pre>
+* This will give you the available view objects. Search for External Bank Account in the above JSON response. You will get the associated View Object. Look for parent VOs.
+  * Sample View Object inside JSON response:
+  <pre> "viewObject" : "oracle.apps.********.core.view.ExternalBankAccountVO" </pre>
 
 * Use the product and business object type we got above to fetch the audit logs using REST API
   * Sample Curl command :
-  <pre>
-  curl --location 'https://BASE_URL_HERE/fscmRestApi/fndAuditRESTService/audittrail/getaudithistory?pageSize=50&pageNumber=1' \
+    <pre>
+    curl --location 'https://BASE_URL_HERE/fscmRestApi/fndAuditRESTService/audittrail/getaudithistory?pageSize=50&pageNumber=1' \
     --header 'Content-Type: application/json' \
     --header 'Authorization: Basic ******' \
     --data '{
@@ -39,5 +39,5 @@ Let us see how we can create Custom sources for Fusion products
         "includeExtendedObjectIdentiferColumns": true,
         "businessObjectType": "oracle.apps.********.core.view.ExternalBankAccountVO",
         "includeChildObjects":true
-    }'
-</pre>
+        }'
+      </pre>
