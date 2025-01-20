@@ -8,7 +8,7 @@ Let us see how we can create Custom sources for Fusion products
 
 * Identify the product you want to collect the audit logs for and enable its audit trail report in Fusion Apps.
 * In our case the product was Cash Management and Business Object Type was External Bank Account
-*	Next, we searched for Cash Management in '[Fusion Audit Products REST API.xlsx](knowledge-content/Fusion Apps/Fusion Audit Products REST API.xlsx)' and found the web application name to be 'Payables'.
+*	Next, we searched for Cash Management in '[Fusion Audit Products REST API.xlsx](Fusion Audit Products REST API.xlsx)' and found the web application name to be 'Payables'.
 * Use Audit Setup API to fetch the View Objects associated with the product/web app.
   * Sample Curl command :
   <pre>
