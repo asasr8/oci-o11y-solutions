@@ -1,1 +1,1 @@
-How to configure the OpenTelemetry Demo to send traces and metrics to OCI Observability and Management Services
+Configuring the OpenTelemetry Demo App to send data to OCI Observability and Management Services
