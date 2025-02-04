@@ -49,9 +49,9 @@ opentelemetry-collector:
     service:
       pipelines:
         traces:
-          exporters: [spanmetrics, otlphttp/oci_spans]
+          exporters: [otlp, debug, spanmetrics, otlphttp/oci_spans]
         metrics:
-          exporters: [otlphttp/oci_metrics]
+          exporters: [otlphttp/prometheus, debug, otlphttp/oci_metrics]
 ```
 Run the following <samp>helm</samp> command to deploy the OpenTelemetry Demo App:
 ```bash
